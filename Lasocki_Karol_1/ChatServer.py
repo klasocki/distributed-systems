@@ -29,7 +29,8 @@ class ChatServer:
     def _handle_udp(self):
         buff, sender_addr = self.udp_socket.recvfrom(4096)
         msg = str(buff, 'cp1250').strip()
-        print(f'Server received message: {msg}')
+        print(f'Server received UDP message from {sender_addr}: {msg}')
+        print(self.clients)
         for recipient_addr in self.clients.keys():
             if recipient_addr != sender_addr:
                 self._send_udp_message(f"From {self.clients[sender_addr][0]}: {msg}", recipient_addr)
@@ -38,7 +39,7 @@ class ChatServer:
     def _handle_client(self, client: socket.socket, sender_addr):
         buff = client.recv(4096)
         msg = str(buff, 'cp1250').strip()
-        print(f'Server received message: {msg}')
+        print(f'Server received TCP message from {sender_addr}: {msg}')
         if msg.startswith('REGISTER'):
             nick = msg.split(maxsplit=1)[1]
             self.clients[sender_addr] = nick, client

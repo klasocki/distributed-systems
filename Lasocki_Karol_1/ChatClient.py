@@ -14,12 +14,15 @@ class ChatClient:
     def __init__(self):
         nick = input('Client starting, what is your nick?\n')
         self.connect(nick)
+        print(self.tcp_socket.getsockname())
+        self.udp_socket.bind(self.tcp_socket.getsockname())  # ensure same port for UDP/TCP
         self.receive_tcp = threading.Thread(target=self.wait_for_tcp_messages)
         self.receive_udp = threading.Thread(target=self.wait_for_udp_messages)
 
     def start(self):
         self.running = True
         self.receive_tcp.start()
+        self.receive_udp.start()
         self.send_messages()
 
     def connect(self, nick: str):
