@@ -1,3 +1,6 @@
+venv
+.idea
+readme.txt
 # Compiled class file
 *.class
 
