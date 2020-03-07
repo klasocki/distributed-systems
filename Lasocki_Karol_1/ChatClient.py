@@ -5,7 +5,7 @@ import struct
 
 
 class ChatClient:
-    server_addr = ("127.0.0.1", 10010)
+    server_addr = ("127.0.0.1", 10011)
     multicast_group = '224.1.1.1', 10001
     udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -29,15 +29,19 @@ class ChatClient:
 
         self.udp_socket.bind(self.tcp_socket.getsockname())  # ensure same port for UDP/TCP
 
-        self.receive_tcp = threading.Thread(target=self.wait_for_tcp_messages)
-        self.receive_udp = threading.Thread(target=self.wait_for_udp_messages)
-        self.reveive_multicast = threading.Thread(target=self.wait_for_multicast_messages)
+        self.tcp_socket.settimeout(2)
+        self.udp_socket.settimeout(2)
+        self.multicast_socket.settimeout(2)
+
+        self.receive_tcp = threading.Thread(target=self._wait_for_messages, args=(self.tcp_socket,))
+        self.receive_udp = threading.Thread(target=self._wait_for_messages, args=(self.udp_socket,))
+        self.receive_multicast = threading.Thread(target=self._wait_for_messages, args=(self.multicast_socket,))
 
     def start(self):
         self.running = True
         self.receive_tcp.start()
         self.receive_udp.start()
-        self.reveive_multicast.start()
+        self.receive_multicast.start()
         self.send_messages()
 
     def connect(self):
@@ -55,35 +59,27 @@ class ChatClient:
                 self.using_multicast = False
                 print('Switched communication mode, now using', 'UDP' if self.using_udp else 'TCP')
             else:
+                if msg == 'A':
+                    msg = self.ascii_art
                 self._send_message_with_nick(msg)
 
     def quit(self):
+        print('Quiting...')
         self.running = False
         self.tcp_socket.send('UNREGISTER'.encode('utf-8'))
-        self.udp_socket.close()
-        self.tcp_socket.close()
-        self.multicast_socket.close()
 
-    def wait_for_tcp_messages(self):
+    def _wait_for_messages(self, sock: socket.socket):
         while self.running:
-            buff = self.tcp_socket.recv(4096)
-            # if not buff:
-            #     return
-            self._log_message(buff)
-
-    def wait_for_udp_messages(self):
-        while self.running:
-            buff = self.udp_socket.recv(4096)
-            # if not buff:
-            #     return
-            self._log_message(buff)
-
-    def wait_for_multicast_messages(self):
-        while self.running:
-            buff = self.multicast_socket.recv(4096)
-            # if not buff:
-            #     return
-            self._log_message(buff)
+            try:
+                buff = sock.recv(65536)
+                if not buff:
+                    return
+                self._log_message(buff)
+            except KeyboardInterrupt:
+                sock.close()
+                return
+            except socket.timeout:
+                pass
 
     @staticmethod
     def _log_message(buff):
@@ -100,6 +96,28 @@ class ChatClient:
             self.udp_socket.sendto(msg, self.server_addr)
         else:
             self.tcp_socket.send(msg)
+
+    ascii_art = r"""
+               __
+.-.__      \ .-.  ___  __
+|_|  '--.-.-(   \/\;;\_\.-._______.-.
+(-)___     \ \ .-\ \;;\(   \       \ \
+ Y    '---._\_((Q)) \;;\\ .-\     __(_)
+ I           __'-' / .--.((Q))---'    \,
+ I     ___.-:    \|  |   \'-'_          \
+ A  .-'      \ .-.\   \   \ \ '--.__     '\
+ |  |____.----((Q))\   \__|--\_      \     '
+    ( )        '-'  \_  :  \-' '--.___\
+     Y                \  \  \       \(_)
+     I                 \  \  \         \,
+     I                  \  \  \          \
+     A                   \  \  \          '\
+     |                    \  \__|           '
+                           \_:.  \
+                             \ \  \
+                              \ \  \
+                               \_\_|
+    """
 
 
 if __name__ == '__main__':
