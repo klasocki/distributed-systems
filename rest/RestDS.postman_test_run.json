@@ -1,0 +1,201 @@
+{
+	"id": "bd3cce1a-dd7a-4b57-abac-3dbca8b7f3cd",
+	"name": "RestDS",
+	"timestamp": "2020-03-15T13:58:26.722Z",
+	"collection_id": "44294a76-c24b-43d9-b10e-23df1aa6cb06",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "b5a04741-a7ba-49f0-bec6-1356be674599",
+			"name": "Get index.html",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				46,
+				6
+			],
+			"allTests": [
+				{},
+				{}
+			]
+		},
+		{
+			"id": "b6023905-e4ea-4cca-abf2-86bb7e021bf3",
+			"name": "Quote of the day",
+			"time": 148,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				618,
+				148
+			],
+			"allTests": [
+				{},
+				{}
+			]
+		},
+		{
+			"id": "d006be98-e13c-47d2-aaa6-ec10308a0179",
+			"name": "Song info",
+			"time": 1011,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1246,
+				1011
+			],
+			"allTests": [
+				{},
+				{}
+			]
+		},
+		{
+			"id": "b371988e-ea05-4290-bc89-22c46f2ae037",
+			"name": "Song lyrics",
+			"time": 278,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				352,
+				278
+			],
+			"allTests": [
+				{},
+				{}
+			]
+		},
+		{
+			"id": "64cbdf18-0d85-467b-9d32-39e4f50771da",
+			"name": "Guitar tabs",
+			"time": 371,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				603,
+				371
+			],
+			"allTests": [
+				{},
+				{}
+			]
+		},
+		{
+			"id": "32a7f2fa-3b2b-4af1-83c7-14587d8c07eb",
+			"name": "Drum tabs",
+			"time": 202,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				498,
+				202
+			],
+			"allTests": [
+				{},
+				{}
+			]
+		},
+		{
+			"id": "7a9ea339-3ba4-4f9d-a87d-bd762fc702d4",
+			"name": "Bass tabs",
+			"time": 193,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				229,
+				193
+			],
+			"allTests": [
+				{},
+				{}
+			]
+		},
+		{
+			"id": "2695e2b7-f836-47fe-9dab-9cb888f52cad",
+			"name": "Events in Poland",
+			"time": 84,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				607,
+				84
+			],
+			"allTests": [
+				{},
+				{}
+			]
+		}
+	],
+	"count": 2,
+	"collection": {
+		"requests": [
+			{
+				"id": "b5a04741-a7ba-49f0-bec6-1356be674599",
+				"method": "GET"
+			},
+			{
+				"id": "b6023905-e4ea-4cca-abf2-86bb7e021bf3",
+				"method": "GET"
+			},
+			{
+				"id": "d006be98-e13c-47d2-aaa6-ec10308a0179",
+				"method": "GET"
+			},
+			{
+				"id": "b371988e-ea05-4290-bc89-22c46f2ae037",
+				"method": "GET"
+			},
+			{
+				"id": "64cbdf18-0d85-467b-9d32-39e4f50771da",
+				"method": "GET"
+			},
+			{
+				"id": "32a7f2fa-3b2b-4af1-83c7-14587d8c07eb",
+				"method": "GET"
+			},
+			{
+				"id": "7a9ea339-3ba4-4f9d-a87d-bd762fc702d4",
+				"method": "GET"
+			},
+			{
+				"id": "2695e2b7-f836-47fe-9dab-9cb888f52cad",
+				"method": "GET"
+			}
+		]
+	}
+}
