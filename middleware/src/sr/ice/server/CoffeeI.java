@@ -24,6 +24,6 @@ public class CoffeeI implements Coffee {
 
     @Override
     public String drinkIt(Current current) {
-        return "What a delicious " + coffeeType.toString() + " coffee " + (hasMilk? " with milk!!!": "!!!");
+        return "What a delicious " + coffeeType.toString() + " coffee" + (hasMilk? " with milk!!!": "!!!");
     }
 }

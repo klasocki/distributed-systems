@@ -45,7 +45,7 @@ public interface CentralHeatingPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Float> _iceI_getCurrentTemperatureAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Float> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getCurrentTemperature", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Float> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getCurrentTemperature", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      float ret;
                      ret = istr.readFloat();
@@ -82,7 +82,7 @@ public interface CentralHeatingPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<float[]> _iceI_getDailyTemperaturesAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<float[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getDailyTemperatures", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<float[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getDailyTemperatures", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      float[] ret;
                      ret = istr.readFloatSeq();

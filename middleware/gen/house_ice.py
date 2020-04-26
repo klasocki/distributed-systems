@@ -131,8 +131,8 @@ if 'CentralHeatingPrx' not in _M_House.__dict__:
     _M_House._t_CentralHeatingDisp = IcePy.defineClass('::House::CentralHeating', CentralHeating, (), None, ())
     CentralHeating._ice_type = _M_House._t_CentralHeatingDisp
 
-    CentralHeating._op_getCurrentTemperature = IcePy.Operation('getCurrentTemperature', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_float, False, 0), ())
-    CentralHeating._op_getDailyTemperatures = IcePy.Operation('getDailyTemperatures', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_House._t_seqOfReadings, False, 0), ())
+    CentralHeating._op_getCurrentTemperature = IcePy.Operation('getCurrentTemperature', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_float, False, 0), ())
+    CentralHeating._op_getDailyTemperatures = IcePy.Operation('getDailyTemperatures', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_House._t_seqOfReadings, False, 0), ())
     CentralHeating._op_changeHeatingTargetTemp = IcePy.Operation('changeHeatingTargetTemp', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, False, 0),), (), ((), IcePy._t_float, False, 0), (_M_House._t_TemperatureOutOfRangeError,))
 
     _M_House.CentralHeating = CentralHeating
@@ -277,8 +277,8 @@ if 'DrinkPrx' not in _M_House.__dict__:
     _M_House._t_DrinkDisp = IcePy.defineClass('::House::Drink', Drink, (), None, ())
     Drink._ice_type = _M_House._t_DrinkDisp
 
-    Drink._op_getTemperature = IcePy.Operation('getTemperature', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_float, False, 0), ())
-    Drink._op_drinkIt = IcePy.Operation('drinkIt', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    Drink._op_getTemperature = IcePy.Operation('getTemperature', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_float, False, 0), ())
+    Drink._op_drinkIt = IcePy.Operation('drinkIt', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
     _M_House.Drink = Drink
     del Drink
@@ -341,7 +341,7 @@ if 'TeaPrx' not in _M_House.__dict__:
     _M_House._t_TeaDisp = IcePy.defineClass('::House::Tea', Tea, (), None, (_M_House._t_DrinkDisp,))
     Tea._ice_type = _M_House._t_TeaDisp
 
-    Tea._op_addSugar = IcePy.Operation('addSugar', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Tea._op_addSugar = IcePy.Operation('addSugar', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
 
     _M_House.Tea = Tea
     del Tea
@@ -404,7 +404,7 @@ if 'CoffeePrx' not in _M_House.__dict__:
     _M_House._t_CoffeeDisp = IcePy.defineClass('::House::Coffee', Coffee, (), None, (_M_House._t_DrinkDisp,))
     Coffee._ice_type = _M_House._t_CoffeeDisp
 
-    Coffee._op_addMilk = IcePy.Operation('addMilk', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Coffee._op_addMilk = IcePy.Operation('addMilk', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
 
     _M_House.Coffee = Coffee
     del Coffee
@@ -497,9 +497,9 @@ if 'DrinkMachinePrx' not in _M_House.__dict__:
     _M_House._t_DrinkMachineDisp = IcePy.defineClass('::House::DrinkMachine', DrinkMachine, (), None, ())
     DrinkMachine._ice_type = _M_House._t_DrinkMachineDisp
 
-    DrinkMachine._op_getCapacity = IcePy.Operation('getCapacity', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    DrinkMachine._op_getCurrentAmount = IcePy.Operation('getCurrentAmount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    DrinkMachine._op_refill = IcePy.Operation('refill', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    DrinkMachine._op_getCapacity = IcePy.Operation('getCapacity', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    DrinkMachine._op_getCurrentAmount = IcePy.Operation('getCurrentAmount', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    DrinkMachine._op_refill = IcePy.Operation('refill', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
 
     _M_House.DrinkMachine = DrinkMachine
     del DrinkMachine

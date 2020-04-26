@@ -53,7 +53,7 @@ public interface Tea extends Drink
     **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_addSugar(Tea obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
         inS.readEmptyParams();
         obj.addSugar(current);
         return inS.setResult(inS.writeEmptyParams());

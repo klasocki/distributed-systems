@@ -27,29 +27,29 @@ public final class SubscriptionServiceGrpc {
   public static final String SERVICE_NAME = "sr.grpc.SubscriptionService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<sr.grpc.Subscriptions.WeatherRequest,
-      sr.grpc.Subscriptions.WeatherResponse> getSubscribeWeatherMethod;
+  private static volatile io.grpc.MethodDescriptor<sr.grpc.WeatherRequest,
+      sr.grpc.WeatherResponse> getSubscribeWeatherMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "subscribeWeather",
-      requestType = sr.grpc.Subscriptions.WeatherRequest.class,
-      responseType = sr.grpc.Subscriptions.WeatherResponse.class,
+      requestType = sr.grpc.WeatherRequest.class,
+      responseType = sr.grpc.WeatherResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<sr.grpc.Subscriptions.WeatherRequest,
-      sr.grpc.Subscriptions.WeatherResponse> getSubscribeWeatherMethod() {
-    io.grpc.MethodDescriptor<sr.grpc.Subscriptions.WeatherRequest, sr.grpc.Subscriptions.WeatherResponse> getSubscribeWeatherMethod;
+  public static io.grpc.MethodDescriptor<sr.grpc.WeatherRequest,
+      sr.grpc.WeatherResponse> getSubscribeWeatherMethod() {
+    io.grpc.MethodDescriptor<sr.grpc.WeatherRequest, sr.grpc.WeatherResponse> getSubscribeWeatherMethod;
     if ((getSubscribeWeatherMethod = SubscriptionServiceGrpc.getSubscribeWeatherMethod) == null) {
       synchronized (SubscriptionServiceGrpc.class) {
         if ((getSubscribeWeatherMethod = SubscriptionServiceGrpc.getSubscribeWeatherMethod) == null) {
           SubscriptionServiceGrpc.getSubscribeWeatherMethod = getSubscribeWeatherMethod =
-              io.grpc.MethodDescriptor.<sr.grpc.Subscriptions.WeatherRequest, sr.grpc.Subscriptions.WeatherResponse>newBuilder()
+              io.grpc.MethodDescriptor.<sr.grpc.WeatherRequest, sr.grpc.WeatherResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "subscribeWeather"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  sr.grpc.Subscriptions.WeatherRequest.getDefaultInstance()))
+                  sr.grpc.WeatherRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  sr.grpc.Subscriptions.WeatherResponse.getDefaultInstance()))
+                  sr.grpc.WeatherResponse.getDefaultInstance()))
               .setSchemaDescriptor(new SubscriptionServiceMethodDescriptorSupplier("subscribeWeather"))
               .build();
         }
@@ -58,29 +58,29 @@ public final class SubscriptionServiceGrpc {
     return getSubscribeWeatherMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<sr.grpc.Subscriptions.MeetingRequest,
-      sr.grpc.Subscriptions.MeetingResponse> getSubscribeMeetingsMethod;
+  private static volatile io.grpc.MethodDescriptor<sr.grpc.MeetingRequest,
+      sr.grpc.MeetingResponse> getSubscribeMeetingsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "subscribeMeetings",
-      requestType = sr.grpc.Subscriptions.MeetingRequest.class,
-      responseType = sr.grpc.Subscriptions.MeetingResponse.class,
+      requestType = sr.grpc.MeetingRequest.class,
+      responseType = sr.grpc.MeetingResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<sr.grpc.Subscriptions.MeetingRequest,
-      sr.grpc.Subscriptions.MeetingResponse> getSubscribeMeetingsMethod() {
-    io.grpc.MethodDescriptor<sr.grpc.Subscriptions.MeetingRequest, sr.grpc.Subscriptions.MeetingResponse> getSubscribeMeetingsMethod;
+  public static io.grpc.MethodDescriptor<sr.grpc.MeetingRequest,
+      sr.grpc.MeetingResponse> getSubscribeMeetingsMethod() {
+    io.grpc.MethodDescriptor<sr.grpc.MeetingRequest, sr.grpc.MeetingResponse> getSubscribeMeetingsMethod;
     if ((getSubscribeMeetingsMethod = SubscriptionServiceGrpc.getSubscribeMeetingsMethod) == null) {
       synchronized (SubscriptionServiceGrpc.class) {
         if ((getSubscribeMeetingsMethod = SubscriptionServiceGrpc.getSubscribeMeetingsMethod) == null) {
           SubscriptionServiceGrpc.getSubscribeMeetingsMethod = getSubscribeMeetingsMethod =
-              io.grpc.MethodDescriptor.<sr.grpc.Subscriptions.MeetingRequest, sr.grpc.Subscriptions.MeetingResponse>newBuilder()
+              io.grpc.MethodDescriptor.<sr.grpc.MeetingRequest, sr.grpc.MeetingResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "subscribeMeetings"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  sr.grpc.Subscriptions.MeetingRequest.getDefaultInstance()))
+                  sr.grpc.MeetingRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  sr.grpc.Subscriptions.MeetingResponse.getDefaultInstance()))
+                  sr.grpc.MeetingResponse.getDefaultInstance()))
               .setSchemaDescriptor(new SubscriptionServiceMethodDescriptorSupplier("subscribeMeetings"))
               .build();
         }
@@ -139,15 +139,15 @@ public final class SubscriptionServiceGrpc {
 
     /**
      */
-    public void subscribeWeather(sr.grpc.Subscriptions.WeatherRequest request,
-        io.grpc.stub.StreamObserver<sr.grpc.Subscriptions.WeatherResponse> responseObserver) {
+    public void subscribeWeather(sr.grpc.WeatherRequest request,
+        io.grpc.stub.StreamObserver<sr.grpc.WeatherResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getSubscribeWeatherMethod(), responseObserver);
     }
 
     /**
      */
-    public void subscribeMeetings(sr.grpc.Subscriptions.MeetingRequest request,
-        io.grpc.stub.StreamObserver<sr.grpc.Subscriptions.MeetingResponse> responseObserver) {
+    public void subscribeMeetings(sr.grpc.MeetingRequest request,
+        io.grpc.stub.StreamObserver<sr.grpc.MeetingResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getSubscribeMeetingsMethod(), responseObserver);
     }
 
@@ -157,15 +157,15 @@ public final class SubscriptionServiceGrpc {
             getSubscribeWeatherMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
-                sr.grpc.Subscriptions.WeatherRequest,
-                sr.grpc.Subscriptions.WeatherResponse>(
+                sr.grpc.WeatherRequest,
+                sr.grpc.WeatherResponse>(
                   this, METHODID_SUBSCRIBE_WEATHER)))
           .addMethod(
             getSubscribeMeetingsMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
-                sr.grpc.Subscriptions.MeetingRequest,
-                sr.grpc.Subscriptions.MeetingResponse>(
+                sr.grpc.MeetingRequest,
+                sr.grpc.MeetingResponse>(
                   this, METHODID_SUBSCRIBE_MEETINGS)))
           .build();
     }
@@ -187,16 +187,16 @@ public final class SubscriptionServiceGrpc {
 
     /**
      */
-    public void subscribeWeather(sr.grpc.Subscriptions.WeatherRequest request,
-        io.grpc.stub.StreamObserver<sr.grpc.Subscriptions.WeatherResponse> responseObserver) {
+    public void subscribeWeather(sr.grpc.WeatherRequest request,
+        io.grpc.stub.StreamObserver<sr.grpc.WeatherResponse> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getSubscribeWeatherMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void subscribeMeetings(sr.grpc.Subscriptions.MeetingRequest request,
-        io.grpc.stub.StreamObserver<sr.grpc.Subscriptions.MeetingResponse> responseObserver) {
+    public void subscribeMeetings(sr.grpc.MeetingRequest request,
+        io.grpc.stub.StreamObserver<sr.grpc.MeetingResponse> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getSubscribeMeetingsMethod(), getCallOptions()), request, responseObserver);
     }
@@ -218,16 +218,16 @@ public final class SubscriptionServiceGrpc {
 
     /**
      */
-    public java.util.Iterator<sr.grpc.Subscriptions.WeatherResponse> subscribeWeather(
-        sr.grpc.Subscriptions.WeatherRequest request) {
+    public java.util.Iterator<sr.grpc.WeatherResponse> subscribeWeather(
+        sr.grpc.WeatherRequest request) {
       return blockingServerStreamingCall(
           getChannel(), getSubscribeWeatherMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public java.util.Iterator<sr.grpc.Subscriptions.MeetingResponse> subscribeMeetings(
-        sr.grpc.Subscriptions.MeetingRequest request) {
+    public java.util.Iterator<sr.grpc.MeetingResponse> subscribeMeetings(
+        sr.grpc.MeetingRequest request) {
       return blockingServerStreamingCall(
           getChannel(), getSubscribeMeetingsMethod(), getCallOptions(), request);
     }
@@ -269,12 +269,12 @@ public final class SubscriptionServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_SUBSCRIBE_WEATHER:
-          serviceImpl.subscribeWeather((sr.grpc.Subscriptions.WeatherRequest) request,
-              (io.grpc.stub.StreamObserver<sr.grpc.Subscriptions.WeatherResponse>) responseObserver);
+          serviceImpl.subscribeWeather((sr.grpc.WeatherRequest) request,
+              (io.grpc.stub.StreamObserver<sr.grpc.WeatherResponse>) responseObserver);
           break;
         case METHODID_SUBSCRIBE_MEETINGS:
-          serviceImpl.subscribeMeetings((sr.grpc.Subscriptions.MeetingRequest) request,
-              (io.grpc.stub.StreamObserver<sr.grpc.Subscriptions.MeetingResponse>) responseObserver);
+          serviceImpl.subscribeMeetings((sr.grpc.MeetingRequest) request,
+              (io.grpc.stub.StreamObserver<sr.grpc.MeetingResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();

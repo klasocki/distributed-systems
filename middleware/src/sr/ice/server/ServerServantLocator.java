@@ -9,17 +9,27 @@ import java.util.Map;
 public class ServerServantLocator implements ServantLocator {
     private final Map<String, Object> servants = new HashMap<>();
 
-    public void addServant(Object servant, String name){
-        servants.put(name, servant);
-    }
-
     @Override
     public LocateResult locate(Current current) throws UserException {
         String name = current.id.name;
-        if(!servants.containsKey(name)) throw new ObjectNotFoundException();
-        System.out.println("Locating servant for " + name);
+        if(servants.containsKey(name)) return new ServantLocator.LocateResult(servants.get(name), null);
 
-        Object servant = servants.get(name);
+        System.out.println("Creating servant for " + name);
+        Object servant;
+        switch (name) {
+            case "heating":
+                servant = new CentralHeatingI();
+                break;
+            case "tea":
+                servant = new TeaMachineI();
+                break;
+            case "coffee":
+                servant = new CoffeeMachineI();
+                break;
+            default:
+                throw new ObjectNotFoundException();
+        }
+        servants.put(name, servant);
         return new ServantLocator.LocateResult(servant, null);
     }
 

@@ -9,8 +9,8 @@ module House
 
   interface CentralHeating
  {
-    float getCurrentTemperature();
-    seqOfReadings getDailyTemperatures();
+    idempotent float getCurrentTemperature();
+    idempotent seqOfReadings getDailyTemperatures();
     float changeHeatingTargetTemp(float delta) throws TemperatureOutOfRangeError;
  };
 
@@ -21,25 +21,25 @@ enum CoffeeType {LATTE, ESSPRESSO, MOCCA};
 
  interface Drink
  {
-    float getTemperature();
-    string drinkIt();
+    idempotent float getTemperature();
+    idempotent string drinkIt();
  };
 
  interface Tea extends Drink
  {
-    void addSugar();
+    idempotent void addSugar();
  };
 
  interface Coffee extends Drink
  {
-    void addMilk();
+    idempotent void addMilk();
  };
 
  interface DrinkMachine
  {
-    int getCapacity();
-    int getCurrentAmount();
-    void refill();
+    idempotent int getCapacity();
+    idempotent int getCurrentAmount();
+    idempotent void refill();
  };
 
  interface CoffeeMachine extends DrinkMachine

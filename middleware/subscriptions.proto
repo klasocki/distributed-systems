@@ -19,9 +19,10 @@ enum Type {
 }
 
 message MeetingResponse {
-    string room = 1;
-    string datetime = 2;
-    Type type = 3;
+    string team = 1;
+    string room = 2;
+    string datetime = 3;
+    Type type = 5;
     repeated Person participants = 4;
 }
 
@@ -39,7 +40,7 @@ message WeatherRequest {
 }
 
 message WeatherResponse {
-    bool satisfying = 1;
+    string city = 1;
     float temperature = 2;
     Conditions conditions = 3;
 }

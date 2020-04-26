@@ -18,8 +18,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='subscriptions.proto',
   package='sr.grpc',
   syntax='proto3',
-  serialized_options=None,
-  serialized_pb=b'\n\x13subscriptions.proto\x12\x07sr.grpc\"\x1e\n\x0eMeetingRequest\x12\x0c\n\x04team\x18\x01 \x01(\t\"\'\n\x06Person\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07surname\x18\x02 \x01(\t\"u\n\x0fMeetingResponse\x12\x0c\n\x04room\x18\x01 \x01(\t\x12\x10\n\x08\x64\x61tetime\x18\x02 \x01(\t\x12\x1b\n\x04type\x18\x03 \x01(\x0e\x32\r.sr.grpc.Type\x12%\n\x0cparticipants\x18\x04 \x03(\x0b\x32\x0f.sr.grpc.Person\"M\n\x0eWeatherRequest\x12\x0c\n\x04\x63ity\x18\x01 \x01(\t\x12\x1a\n\x12\x64\x65siredTemperature\x18\x02 \x01(\x02\x12\x11\n\ttolerance\x18\x03 \x01(\x02\"c\n\x0fWeatherResponse\x12\x12\n\nsatisfying\x18\x01 \x01(\x08\x12\x13\n\x0btemperature\x18\x02 \x01(\x02\x12\'\n\nconditions\x18\x03 \x01(\x0e\x32\x13.sr.grpc.Conditions*4\n\x04Type\x12\x0b\n\x07STANDUP\x10\x00\x12\x10\n\x0c\x43OMPANY_WIDE\x10\x01\x12\r\n\tDIRECTORS\x10\x02*:\n\nConditions\x12\t\n\x05SUNNY\x10\x00\x12\n\n\x06\x43LOUDY\x10\x01\x12\t\n\x05RAINY\x10\x02\x12\n\n\x06STORMY\x10\x03\x32\xa8\x01\n\x13SubscriptionService\x12G\n\x10subscribeWeather\x12\x17.sr.grpc.WeatherRequest\x1a\x18.sr.grpc.WeatherResponse0\x01\x12H\n\x11subscribeMeetings\x12\x17.sr.grpc.MeetingRequest\x1a\x18.sr.grpc.MeetingResponse0\x01\x62\x06proto3'
+  serialized_options=b'P\001',
+  serialized_pb=b'\n\x13subscriptions.proto\x12\x07sr.grpc\"\x1e\n\x0eMeetingRequest\x12\x0c\n\x04team\x18\x01 \x01(\t\"\'\n\x06Person\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07surname\x18\x02 \x01(\t\"\x83\x01\n\x0fMeetingResponse\x12\x0c\n\x04team\x18\x01 \x01(\t\x12\x0c\n\x04room\x18\x02 \x01(\t\x12\x10\n\x08\x64\x61tetime\x18\x03 \x01(\t\x12\x1b\n\x04type\x18\x05 \x01(\x0e\x32\r.sr.grpc.Type\x12%\n\x0cparticipants\x18\x04 \x03(\x0b\x32\x0f.sr.grpc.Person\"M\n\x0eWeatherRequest\x12\x0c\n\x04\x63ity\x18\x01 \x01(\t\x12\x1a\n\x12\x64\x65siredTemperature\x18\x02 \x01(\x02\x12\x11\n\ttolerance\x18\x03 \x01(\x02\"]\n\x0fWeatherResponse\x12\x0c\n\x04\x63ity\x18\x01 \x01(\t\x12\x13\n\x0btemperature\x18\x02 \x01(\x02\x12\'\n\nconditions\x18\x03 \x01(\x0e\x32\x13.sr.grpc.Conditions*4\n\x04Type\x12\x0b\n\x07STANDUP\x10\x00\x12\x10\n\x0c\x43OMPANY_WIDE\x10\x01\x12\r\n\tDIRECTORS\x10\x02*:\n\nConditions\x12\t\n\x05SUNNY\x10\x00\x12\n\n\x06\x43LOUDY\x10\x01\x12\t\n\x05RAINY\x10\x02\x12\n\n\x06STORMY\x10\x03\x32\xa8\x01\n\x13SubscriptionService\x12G\n\x10subscribeWeather\x12\x17.sr.grpc.WeatherRequest\x1a\x18.sr.grpc.WeatherResponse0\x01\x12H\n\x11subscribeMeetings\x12\x17.sr.grpc.MeetingRequest\x1a\x18.sr.grpc.MeetingResponse0\x01\x42\x02P\x01\x62\x06proto3'
 )
 
 _TYPE = _descriptor.EnumDescriptor(
@@ -43,8 +43,8 @@ _TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=404,
-  serialized_end=456,
+  serialized_start=413,
+  serialized_end=465,
 )
 _sym_db.RegisterEnumDescriptor(_TYPE)
 
@@ -74,8 +74,8 @@ _CONDITIONS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=458,
-  serialized_end=516,
+  serialized_start=467,
+  serialized_end=525,
 )
 _sym_db.RegisterEnumDescriptor(_CONDITIONS)
 
@@ -167,28 +167,35 @@ _MEETINGRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='room', full_name='sr.grpc.MeetingResponse.room', index=0,
+      name='team', full_name='sr.grpc.MeetingResponse.team', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='datetime', full_name='sr.grpc.MeetingResponse.datetime', index=1,
+      name='room', full_name='sr.grpc.MeetingResponse.room', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='type', full_name='sr.grpc.MeetingResponse.type', index=2,
-      number=3, type=14, cpp_type=8, label=1,
+      name='datetime', full_name='sr.grpc.MeetingResponse.datetime', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='sr.grpc.MeetingResponse.type', index=3,
+      number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='participants', full_name='sr.grpc.MeetingResponse.participants', index=3,
+      name='participants', full_name='sr.grpc.MeetingResponse.participants', index=4,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -206,8 +213,8 @@ _MEETINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=105,
-  serialized_end=222,
+  serialized_start=106,
+  serialized_end=237,
 )
 
 
@@ -251,8 +258,8 @@ _WEATHERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=224,
-  serialized_end=301,
+  serialized_start=239,
+  serialized_end=316,
 )
 
 
@@ -264,9 +271,9 @@ _WEATHERRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='satisfying', full_name='sr.grpc.WeatherResponse.satisfying', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
+      name='city', full_name='sr.grpc.WeatherResponse.city', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -296,8 +303,8 @@ _WEATHERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=303,
-  serialized_end=402,
+  serialized_start=318,
+  serialized_end=411,
 )
 
 _MEETINGRESPONSE.fields_by_name['type'].enum_type = _TYPE
@@ -348,6 +355,7 @@ WeatherResponse = _reflection.GeneratedProtocolMessageType('WeatherResponse', (_
 _sym_db.RegisterMessage(WeatherResponse)
 
 
+DESCRIPTOR._options = None
 
 _SUBSCRIPTIONSERVICE = _descriptor.ServiceDescriptor(
   name='SubscriptionService',
@@ -355,8 +363,8 @@ _SUBSCRIPTIONSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=519,
-  serialized_end=687,
+  serialized_start=528,
+  serialized_end=696,
   methods=[
   _descriptor.MethodDescriptor(
     name='subscribeWeather',

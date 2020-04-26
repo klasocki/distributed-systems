@@ -56,7 +56,7 @@ public interface DrinkMachine extends com.zeroc.Ice.Object
     **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getCapacity(DrinkMachine obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
         inS.readEmptyParams();
         int ret = obj.getCapacity(current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
@@ -74,7 +74,7 @@ public interface DrinkMachine extends com.zeroc.Ice.Object
     **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getCurrentAmount(DrinkMachine obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
         inS.readEmptyParams();
         int ret = obj.getCurrentAmount(current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
@@ -92,7 +92,7 @@ public interface DrinkMachine extends com.zeroc.Ice.Object
     **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_refill(DrinkMachine obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
         inS.readEmptyParams();
         obj.refill(current);
         return inS.setResult(inS.writeEmptyParams());

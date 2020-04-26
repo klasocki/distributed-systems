@@ -45,7 +45,7 @@ public interface TeaPrx extends DrinkPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_addSugarAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "addSugar", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "addSugar", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }

@@ -54,7 +54,7 @@ public interface Drink extends com.zeroc.Ice.Object
     **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getTemperature(Drink obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
         inS.readEmptyParams();
         float ret = obj.getTemperature(current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
@@ -72,7 +72,7 @@ public interface Drink extends com.zeroc.Ice.Object
     **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_drinkIt(Drink obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
         inS.readEmptyParams();
         String ret = obj.drinkIt(current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
