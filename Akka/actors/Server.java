@@ -29,19 +29,21 @@ public class Server extends AbstractActor {
     Map<Integer, ActorRef> requestClients = new HashMap<>();
     Map<Integer, List<PriceResponse>> requestResults = new HashMap<>();
     Map<Integer, Integer> requestCounts = new HashMap<>();
+    ActorRef shops = getContext().actorOf(
+            new RoundRobinPool(6).props(Props.create(Shop.class)), "shops");
+    ActorRef connections = getContext().actorOf(
+            new RoundRobinPool(3).props(Props.create(DatabaseConnection.class)), "connections");
 
     @Override
     public AbstractActor.Receive createReceive() {
         return receiveBuilder()
                 .match(String.class, productName -> {
                     log.info("Received request for the price of: " + productName);
-                    ActorRef shop1 = context().actorOf(Props.create(Shop.class));
-                    ActorRef shop2 = context().actorOf(Props.create(Shop.class));
-                    ActorRef database = context().actorOf(Props.create(DatabaseConnection.class));
                     var request = new PriceRequest(currentRequestId, productName);
-                    shop1.tell(request, getSelf());
-                    shop2.tell(request, getSelf());
-                    database.tell(request, getSelf());
+                    shops.tell(request, getSelf());
+                    shops.tell(request, getSelf());
+                    connections.tell(request, getSelf());
+
                     requestClients.put(currentRequestId, getSender());
                     requestResults.put(currentRequestId, new ArrayList<>());
                     requestCounts.put(currentRequestId, -1);
@@ -59,7 +61,6 @@ public class Server extends AbstractActor {
                     if (!requestResults.containsKey(priceResponse.id)) return;
                     log.info("Received response with a price: " + priceResponse);
 
-                    getContext().stop(getSender());
                     var results = requestResults.get(priceResponse.id);
                     results.add(priceResponse);
                     if (results.size() == 2) {
@@ -76,7 +77,6 @@ public class Server extends AbstractActor {
                     if (!requestResults.containsKey(requestTimeout.id)) return;
                     log.info("Timeout for a request: " + requestTimeout);
 
-                    getContext().stop(getSender());
                     ActorRef client = requestClients.get(requestTimeout.id);
                     var results = requestResults.get(requestTimeout.id);
                     if (results.size() == 0) client.tell(requestTimeout, null);
@@ -101,7 +101,6 @@ public class Server extends AbstractActor {
                         requestCounts.replace(databaseResponse.id, databaseResponse.requestCount);
                     }
                     else log.info("Received time outed database response: " + databaseResponse);
-                    getContext().stop(getSender());
                 })
                 .matchAny(o -> log.info("received unknown message"))
                 .build();
