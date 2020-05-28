@@ -34,7 +34,16 @@ class SongAppController {
                 EventInfo::class.java)
 
 
-        return template.format(quote, song, artist, tabUri.format("guitar"), tabUri.format("bass"), tabUri.format("drums"), events, lyrics)
+        return template.format(
+                quote,
+                song,
+                artist,
+                tabUri.format("guitar"),
+                tabUri.format("bass"),
+                tabUri.format("drums"),
+                events,
+                lyrics
+        )
     }
 
     val template = """
